@@ -1,0 +1,18 @@
+{
+  // Required
+  "manifest_version": 2,
+  "name": "What A Waste!",
+  "version": "1.0",
+  "description": "Track time wated on the web, to help you stay productive",
+  "permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "That's the tool tip",
+    "default_popup": "popup.html"
+  }
+}
