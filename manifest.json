@@ -8,10 +8,11 @@
     "<all_urls>", "storage", "notifications"
   ],
   "background": {
-    "scripts": ["database.js", "desknotif.js", "background.js"],
+    "scripts": ["database.js", "active.js", "desknotif.js", "background.js"],
     "persistent": true
   },
   "browser_action": {
+    "default_icon": "./logo.png",
     "default_title": "That's the tool tip",
     "default_popup": "popup.html"
   }
