@@ -1,11 +1,16 @@
+
+var interval;
+
 function intervalspan(minutes) 
 {
 
 var ms = minutes * 60000; 
-var x = setInterval(function() {intervalNotify(interval)}, ms);
+interval = setInterval(function() {intervalNotify(interval)}, ms);
+
+}
 
 function stopInterval()
 	{
-		clearInterval(x);
+		clearInterval(interval);
 	}
-}
+
