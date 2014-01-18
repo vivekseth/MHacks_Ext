@@ -8,7 +8,7 @@
     "<all_urls>", "storage", "notifications"
   ],
   "background": {
-    "scripts": ["database.js", "desknotif.js", "background.js"],
+    "scripts": ["database.js", "active.js", "desknotif.js", "background.js"],
     "persistent": true
   },
   "browser_action": {
