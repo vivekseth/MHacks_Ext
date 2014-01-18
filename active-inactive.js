@@ -1,6 +1,7 @@
-$(window).blur(function(){
-  //your code here
+window.addEventListener('focus', function() {
+    document.title = 'focused';
 });
-$(window).focus(function(){
-  //your code
+
+window.addEventListener('blur', function() {
+    document.title = 'not focused';
 });
