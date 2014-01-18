@@ -2,6 +2,7 @@
   "manifest_version": 2,
   "name": "TimeWise",
   "version": "1.0",
+  "options_page": "options.html",
   "description": "Track time wated on the web, to help you stay productive",
   "permissions": [
     "<all_urls>", "storage", "notifications", "tabs"
@@ -21,6 +22,6 @@
   "browser_action": {
     "default_icon": "./logo.png",
     "default_title": "Manage TimeWise",
-    "default_popup": "settings.html"
+    "default_popup": "options.html"
   }
 }
