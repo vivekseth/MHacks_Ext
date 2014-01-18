@@ -5,10 +5,10 @@
   "version": "1.0",
   "description": "Track time wated on the web, to help you stay productive",
   "permissions": [
-    "<all_urls>"
+    "<all_urls>", "storage"
   ],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["ydn.db-isw-core-qry.js", "background.js"],
     "persistent": true
   },
   "browser_action": {
