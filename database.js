@@ -1,7 +1,6 @@
-function createLog(website, url, start_time, end_time) {
+function createLog(hostname, start_time, end_time) {
 	return {
-		"website" : website,
-		"url" : url,
+		"hostname" : hostname,
 		"start_time" : start_time,
 		"end_time" : end_time,
 	}
@@ -29,13 +28,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 },false);
 
-function addLog(website, url, start_time, end_time) { 
- 
+function addLog(hostname, start_time, end_time) { 
     var transaction = db.transaction(["logs"],"readwrite");
     var store = transaction.objectStore("logs");
  
     //Define a person
-    var log = createLog(website, url, start_time, end_time);
+    var log = createLog(hostname, start_time, end_time);
  
     //Perform the add
     var request = store.add(log);

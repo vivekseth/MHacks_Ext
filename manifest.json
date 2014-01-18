@@ -5,10 +5,13 @@
   "version": "1.0",
   "description": "Track time wated on the web, to help you stay productive",
   "permissions": [
-    "<all_urls>", "storage", "notifications"
+    "<all_urls>", "storage", "notifications", "tabs"
   ],
+  "externally_connectable": {
+    "matches": ["*://*.google.com/*"]
+  },
   "background": {
-    "scripts": ["database.js", "active.js", "desknotif.js", "background.js"],
+    "scripts": ["define.js", "database.js", "desknotif.js", "main.js"],
     "persistent": true
   },
   "browser_action": {
