@@ -1,42 +1,35 @@
-
 <html>
 <header>
-<h1>Welcome to TimeWise!</h1>
 </header>
 
 <body>
+	<h1>Welcome to TimeWise!</h1>
 
-<p>Enter the websites:</p>
-<p><textarea rows="10" cols="20" id="textbox">
-</textarea></p>
+	<p>Enter the websites:</p>
 
-<p> Intervals: </p>
-<select id="interval">
-<option value="1 min">1 Minute</option>
-<option value="2 min">2 Minutes</option>
-<option value="3 mins">3 Minutes</option>
-<option value="5 mins">5 Minutes</option>
-<option value="10 mins">10 Minutes</option>
-<option value="15 mins">15 Minutes</option>
-<option value="20 mins">20 Minutes</option>
-<option value="30 mins">30 Minutes</option>
-<option value="45 mins">45 Minutes</option>
-<option value="60 mins">60 Minutes</option>
-</select>
+	<textarea id="textbox" rows="10" cols="20"></textarea>
 
-<br><br><br>
+	<p> Intervals: </p>
+
+	<select id="interval">
+		<option value="1 min">1 Minute</option>
+		<option value="2 min">2 Minutes</option>
+		<option value="3 mins">3 Minutes</option>
+		<option value="5 mins">5 Minutes</option>
+		<option value="10 mins">10 Minutes</option>
+		<option value="15 mins">15 Minutes</option>
+		<option value="20 mins">20 Minutes</option>
+		<option value="30 mins">30 Minutes</option>
+		<option value="45 mins">45 Minutes</option>
+		<option value="60 mins">60 Minutes</option>
+	</select>
+
+	<br />
+	<br />
+	<br />
+
 </body>
 
-<script>
-function buttonhandler()
-{ 
-var list= document.getElementById("textbox").value;
-var listarr=list.split('\n');
-console.log(listarr);
-return listarr;
-}
-</script>
-
-<button type="save" onclick="buttonhandler()">Save</button>
-
+<button id="saveButton" type="save">Save</button>
+<script src="scripts/settings.js"></script>
 </html>

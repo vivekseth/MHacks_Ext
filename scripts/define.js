@@ -1,7 +1,6 @@
-SMALL_TICK_INT = 500
-BIG_TICK_INT = -1;
-
 var app = {}
+app.SMALL_TICK_INT = 500
+app.BIG_TICK_INT = -1;
 app.db = null;
 app.tracking = false;
 app.log = {}

@@ -1,6 +1,8 @@
 function isBlockedSite(url) {
 	for (var i = 0; i < app.blocked_sites.length; i++) {
-		if (getHostName(url) == getHostName(app.blocked_sites[i])) {
+		var host1 = getHostName(url);
+		var host2 = getHostName(app.blocked_sites[i]);
+		if (host1 == host2) {
 			return true;
 		}
 	}
@@ -12,7 +14,7 @@ function getHostName(url) {
 	var hostName = parser.hostname;
 	return hostName;
 }
-app.small_ticker = setInterval(function(){smallTickFunc();}, SMALL_TICK_INT);
+app.small_ticker = setInterval(function(){smallTickFunc();}, app.SMALL_TICK_INT);
 var smallTickFunc = function(){
 	chrome.tabs.getSelected(null, function(tab) {
 	  tabUrl = tab.url;
@@ -28,10 +30,10 @@ function enteredBlockedSite() {
 	app.log.tracking = true;
   	app.log.hostname = getHostName(tabUrl);
   	app.log.start_time = new Date();
-  	app.big_ticker = setInterval(function(){bigTickFunc();}, BIG_TICK_INT);
+  	app.big_ticker = setInterval(function(){bigTickFunc();}, app.BIG_TICK_INT);
 }
 function leftBlockedSite() {
-	clearInterval(bigTick);
+	clearInterval(app.big_ticker);
 	app.log.tracking = false;
   	app.log.end_time = new Date();
   	console.log(app.log.end_time - app.log.start_time);
@@ -41,7 +43,7 @@ function leftBlockedSite() {
   	app.log.start_time = null;
 }
 function bigTickFunc() {
-	var minutes = BIG_TICK_INT/(1000 * 60);
+	var minutes = app.BIG_TICK_INT/(1000 * 60);
 	if (minutes < 0) return;
 	intervalNotify(minutes);
 }
