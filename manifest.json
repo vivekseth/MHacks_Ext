@@ -23,5 +23,8 @@
     "default_icon": "./logo.png",
     "default_title": "Manage TimeWise",
     "default_popup": "options.html"
+  },
+  "icons": {
+    "128": "./logo.png"
   }
 }

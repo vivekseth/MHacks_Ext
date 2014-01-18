@@ -10,8 +10,9 @@ function isBlockedSite(url) {
 }
 function getHostName(url) {
 	var parser = document.createElement('a');
-	parser.href = url
+	parser.href = url;
 	var hostName = parser.hostname;
+	//var hostName = window.location.host;
 	return hostName;
 }
 app.small_ticker = setInterval(function(){smallTickFunc();}, app.SMALL_TICK_INT);
