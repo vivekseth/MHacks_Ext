@@ -8,7 +8,7 @@
     "<all_urls>", "storage"
   ],
   "background": {
-    "scripts": ["ydn.db-isw-core-qry.js", "background.js"],
+    "scripts": ["desknotif.js", "background.js"],
     "persistent": true
   },
   "browser_action": {
