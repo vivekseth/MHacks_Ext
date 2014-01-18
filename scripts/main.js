@@ -45,7 +45,7 @@ function leftBlockedSite() {
 function bigTickFunc() {
 	var minutes = app.BIG_TICK_INT/(1000 * 60);
 	if (minutes < 0) return;
-	intervalNotify(minutes);
+	chrome.tabs.executeScript(null, {file: "popup.js"});
 }
 
 
