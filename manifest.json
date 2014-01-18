@@ -1,5 +1,4 @@
 {
-  // Required
   "manifest_version": 2,
   "name": "TimeWise",
   "version": "1.0",
@@ -11,7 +10,12 @@
     "matches": ["*://*.google.com/*"]
   },
   "background": {
-    "scripts": ["define.js", "database.js", "desknotif.js", "main.js"],
+    "scripts": [
+      "scripts/define.js",
+      "scripts/desknotif.js", 
+      "scripts/database.js", 
+      "scripts/main.js"
+    ],
     "persistent": true
   },
   "browser_action": {
