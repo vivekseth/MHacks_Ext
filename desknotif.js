@@ -23,5 +23,5 @@ function notify(icon, title, desc) {
 }
 
 function intervalNotify(interval){
-  notify('http://i.stack.imgur.com/dmHl0.png', 'ATTENTION!!', 'You have spent ' + interval + ' minutes on your tracked websites.');
+  notify('./interval icon.jpg', 'ATTENTION!!', 'You have spent ' + interval + ' minutes on your tracked websites.');
 }
