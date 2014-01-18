@@ -6,81 +6,43 @@ function createLog(website, url, start_time, end_time) {
 		"end_time" : end_time,
 	}
 }
-function saveLog(l) {
-	chrome.storage.local.get("logs", function(data){
-		if (!data) data = {};
-		if (!data.logs) data.logs = [];
-		data.logs.push(l);
-		chrome.storage.local.set(data);
-	})
+var db;
+function indexedDBOk() {
+    return "indexedDB" in window;
 }
-function getLogs() {
-	chrome.storage.local.get("logs", function(data){
-		console.log(data)
-	})
-}
+document.addEventListener("DOMContentLoaded", function() {
+	var version = 4;
+    if(!indexedDBOk) return;
+    var openRequest = indexedDB.open("LogDB_2_2",version);
+    openRequest.onupgradeneeded = function(e) {
+        var thisDB = e.target.result;
+        if(!thisDB.objectStoreNames.contains("logs")) {
+            thisDB.createObjectStore("logs", {keyPath: "myKey", autoIncrement: true});
+        }
+    }
+    openRequest.onsuccess = function(e) {
+        console.log("running onsuccess");
+        db = e.target.result;
+    }
+    openRequest.onerror = function(e) {
+        console.logs(e);
+    }
+},false);
 
-
-logDB.open = function() {
-	var version = 1;
-  	var request = indexedDB.open("logs", version);
-
-  	request.onupgradeneeded = function(e) {
-	    var db = e.target.result;
-	    // A versionchange transaction is started automatically.
-	    e.target.transaction.onerror = html5rocks.indexedDB.onerror;
-	    if(db.objectStoreNames.contains("logs")) {
-	      db.deleteObjectStore("logs");
-	    }
-	    var store = db.createObjectStore("logs",
-	      {keyPath: "timeStamp"});
-	};
-
-	request.onsuccess = function(e) {
-	  logDB.db = e.target.result;
-	  logDB.getAllLogItems();
-	};
-
-	request.onerror = logDB.onerror;
-}
-
-logDB.addTodo = function(website, url, start_time, end_time) {
-  var db = logDB.db;
-  var trans = db.transaction(["logs"], "readwrite");
-  var store = trans.objectStore("logs");
-  var request = store.put(createLog(website, url, start_time, end_time));
-
-  request.onsuccess = function(e) {
-    // Re-render all the logs's
-    logDB.getAllLogItems();
-  };
-
-  request.onerror = function(e) {
-    console.log(e.value);
-  };
-};
-
-logDB.getAllLogItems = function(callback) {
-  var db = logDB.db;
-  var trans = db.transaction(["logs"], "readwrite");
-  var store = trans.objectStore("logs");
-
-  // Get everything in the store;
-  var keyRange = IDBKeyRange.lowerBound(0);
-  var cursorRequest = store.openCursor(keyRange);
-
-  cursorRequest.onsuccess = function(e) {
-    var result = e.target.result;
-    if(!!result == false)
-      return;
-
-    callback(result.value);
-    result.continue();
-  };
-
-  cursorRequest.onerror = logDB.onerror;
-};
-
-logDB.onerror = function(err) {
-	console.logs(err);
+function addLog(website, url, start_time, end_time) { 
+ 
+    var transaction = db.transaction(["logs"],"readwrite");
+    var store = transaction.objectStore("logs");
+ 
+    //Define a person
+    var log = createLog(website, url, start_time, end_time);
+ 
+    //Perform the add
+    var request = store.add(log);
+    request.onerror = function(e) {
+        console.log("Error",e.target.error.name);
+    }
+    request.onsuccess = function(e) {
+        console.log("Woot! Did it");
+    }
 }
