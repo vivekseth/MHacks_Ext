@@ -1,14 +1,14 @@
 {
   // Required
   "manifest_version": 2,
-  "name": "What A Waste!",
+  "name": "TimeWise",
   "version": "1.0",
   "description": "Track time wated on the web, to help you stay productive",
   "permissions": [
-    "<all_urls>", "storage"
+    "<all_urls>", "storage", "notifications"
   ],
   "background": {
-    "scripts": ["desknotif.js", "background.js"],
+    "scripts": ["database.js", "desknotif.js", "background.js"],
     "persistent": true
   },
   "browser_action": {
