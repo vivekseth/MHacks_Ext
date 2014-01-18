@@ -1,13 +1,13 @@
 //desknotif.js
 
-function notify() {
+function notify(icon, title, desc) {
   var havePermission = window.webkitNotifications.checkPermission();
   if (havePermission == 0) {
     // 0 is PERMISSION_ALLOWED
     var notification = window.webkitNotifications.createNotification(
-      'http://i.stack.imgur.com/dmHl0.png', //icon
-      'ATTENTION!!', //icon
-    'You have spent X amount of time on your list of watched websites.' //message
+      icon, //icon url
+      title, //message title
+    desc //message
     );
     
     //do something when they click the notifiction
@@ -20,4 +20,8 @@ function notify() {
   } else {
       window.webkitNotifications.requestPermission();
   }
-} 
+}
+
+function intervalNotify(interval){
+  notify('http://i.stack.imgur.com/dmHl0.png', 'ATTENTION!!', 'You have spent ' + interval + ' minutes on your tracked websites.');
+}
