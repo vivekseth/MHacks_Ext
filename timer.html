@@ -1,25 +1,28 @@
 <html>
 	<head>
 	<script type="text/javascript">
-		function startTime(){
-			var today=new Date();
-			var m=today.getMinutes();
-			var s=today.getSeconds();
+		function startTime(interval){
+			var m=interval;
+			var s=0;
 			// add a zero in front of numbers<10
-			m=checkTime(m);
+			m = checkTime(m);
 			s=checkTime(s);
-			document.getElementById('txt').innerHTML=m+":"+s;
-			t=setTimeout('startTime()',500);
+			setTimeout(function(){document.getElementById('txt').innerHTML=m+":"+s; s++; if(s != 0){secLoop(m, 1);} else{startTime(m++);}},1000);
+			//startTime(m++);
+		}
+		function secLoop(min, sec){
+			sec = checkTime(sec);
+			setTimeout(function() {document.getElementById('txt').innerHTML=min+":"+sec; sec++; if(sec < 60){secLoop(min, sec++);}}, 1000);
 		}
 		function checkTime(i) {
-			if (i<10){
+			if (i<10)
 				i="0" + i;
-			}
 			return i;
 		}
 	</script>
 	</head>
-	<body onload="startTime()">
-		<div id="txt"></div>
+
+	<body onload="startTime(5)">
+		<div id="txt" style="font-family: Trebuchet MS, sans-serif; color: red; font-size: 33px;"></div>
 	</body>
 </html>
