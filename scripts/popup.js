@@ -16,4 +16,3 @@ function addPopup(html) {
 	document.getElementById("__popup").innerHTML = html;
 	centerElement(document.getElementById("__popup"));
 }
-addPopup("<h1>Hello World</h1>")

@@ -46,6 +46,7 @@ function bigTickFunc() {
 	var minutes = app.BIG_TICK_INT/(1000 * 60);
 	if (minutes < 0) return;
 	chrome.tabs.executeScript(null, {file: "popup.js"});
+	chrome.tabs.executeScript({code: "addPopup('hello world')"});
 }
 
 
