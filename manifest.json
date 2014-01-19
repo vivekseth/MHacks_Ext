@@ -3,7 +3,7 @@
   "name": "TimeWise",
   "version": "1.0",
   "options_page": "options.html",
-  "description": "Track time wated on the web, to help you stay productive",
+  "description": "Track time wasted on the web, to help you stay productive",
   "permissions": [
     "<all_urls>", "storage", "notifications", "tabs"
   ],
@@ -23,5 +23,8 @@
     "default_icon": "./logo.png",
     "default_title": "Manage TimeWise",
     "default_popup": "options.html"
+  },
+  "icons": {
+    "128": "./logo.png"
   }
 }
