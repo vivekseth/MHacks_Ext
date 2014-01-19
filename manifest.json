@@ -22,7 +22,7 @@
   "browser_action": {
     "default_icon": "./logo.png",
     "default_title": "Manage TimeWise",
-    "default_popup": "options.html"
+    "default_popup": "./pop/index.html"
   },
   "icons": {
     "128": "./logo.png"
