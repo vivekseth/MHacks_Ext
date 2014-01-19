@@ -25,4 +25,12 @@ window.addEventListener("load", function load(event){
     var textbox = document.getElementById("textbox");
 	var app = chrome.extension.getBackgroundPage().app;
 	textbox.value = app.blocked_sites.join("\n");
+
+	var lastValue = localStorage.getItem('interval');
+	//init localStorage, if key does not exist
+	if (!lastValue) {
+		lastValue = '5';
+		localStorage.setItem('interval', lastValue);
+	}
+
 },false);
