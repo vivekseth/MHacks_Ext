@@ -12,6 +12,9 @@ function buttonhandler(doc) {
 	var min = Number(time_string_num);
 	app.BIG_TICK_INT = min * 60 * 1000;
 
+	var interval = document.getElementById("interval");
+	localStorage.setItem('interval', interval.value);
+
 	window.close();
 }
 
@@ -26,11 +29,13 @@ window.addEventListener("load", function load(event){
 	var app = chrome.extension.getBackgroundPage().app;
 	textbox.value = app.blocked_sites.join("\n");
 
-	var lastValue = localStorage.getItem('interval');
-	//init localStorage, if key does not exist
-	if (!lastValue) {
-		lastValue = '5';
-		localStorage.setItem('interval', lastValue);
+	var minuteInt = localStorage.getItem('interval');
+	if(!minuteInt){
+		minuteInt = '5';
+		localStorage.setItem('interval', minuteInt);
 	}
+    var interval = document.getElementById("interval");
+	interval.value = minuteInt;
+ 
 
 },false);
