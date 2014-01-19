@@ -47,29 +47,38 @@ function jsonHandler(json) {
 	*/
 	//loop thru json
 
-	/*
+	
 
-	for ... {
+	for( var i = 0; i < json.length; i++) 
+	{
+		
 		var obj = json[i];
 		var anchor_id = "anchor" + (i+1);
-		document.getEle...(an..id).attribs.href = obj.contentURL
-		(image1).src = obj[i].imageURL;
-		(title1 ).innerText = ""
-		desc1 same as above
+		document.getElementById(anchor_id).attribs.href = obj.contentURL;
+		var image_id = "image" + (i+1);
+		document.getElementById(image_id).src = obj.imageURL;
+		var title_id = "title" + (i+1);
+		document.getElementById(title_id).innerText = obj.title;
+		var desc_id = "desc" + (i+1);
+		document.getElementById(desc_id).innerText = obj.description; 
+	
 	}
 
-	<div class=\"thumbnail\">
-		<a id=\"anchor1\" href=\"file:///Users/vivekseth/dev/chrome/TimeWise_2/pop/index.html#\">
-		<img id=\"image1\"height=\"125\" width=\"125\" src=\"./index_files/city\">
-		</a>
-	<div class=\"caption\">
-		<b><p id=\"title1\">Thing 1</p></b>
-		<p id=\"desc1\">Caption</p></div>
-	</div>
+	
+	// <div class=\"thumbnail\">
+	// 	<a id=\"anchor1\" href=\"file:///Users/vivekseth/dev/chrome/TimeWise_2/pop/index.html#\">
+	// 	<img id=\"image1\"height=\"125\" width=\"125\" src=\"./index_files/city\">
+	// 	</a>
+	// <div class=\"caption\">
+	// 	<b><p id=\"title1\">Thing 1</p></b>
+	// 	<p id=\"desc1\">Caption</p></div>
+	// </div>
 
-	*/
+	
+	// for (var)
 
-	for each obj put correct fields in the section
+
+	// for each obj put correct fields in the section
 }
 
 
