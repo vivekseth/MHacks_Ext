@@ -5,17 +5,19 @@
   "options_page": "options.html",
   "description": "Track time wasted on the web, to help you stay productive",
   "permissions": [
-    "tabs", "http://*/*", "https://*/*", "storage", "notifications"
+    "tabs", "http://*/*", "https://*/*", "storage", "notifications", "activeTab"
   ],
   "externally_connectable": {
     "matches": ["*://*.giftof5.org/*"]
   },
   "background": {
     "scripts": [
+      "jquery-2.0.3.min.js",
       "scripts/define.js",
       "scripts/desknotif.js", 
       "scripts/database.js", 
-      "scripts/main.js"
+      "scripts/main.js",
+      "scripts/popup.js"
     ],
     "persistent": true
   },
