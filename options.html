@@ -1,11 +1,102 @@
 <html>
-<header>
-</header>
+<style>
+#top, #bottom, #left, #right {
+	background: #000000;
+	position: fixed;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: 10px;
+		}
+		#left { left: 0; }
+		#right { right: 0; }
+		
+	#top, #bottom {
+		left: 0; right: 0;
+		height: 10px;
+		}
+		#top { top: 0; }
+		#bottom { bottom: 0; }
+#top2, #bottom2, #left2, #right2 {
+	background: #000000;
+	position: fixed;
+	}
+	#left2, #right2 {
+		top: 20; bottom: 20;
+		width: 10px;
+		}
+		#left2 { left: 20; }
+		#right2 { right: 20; }
+		
+	#top2, #bottom2 {
+		left: 20; right: 20;
+		height: 10px;
+		}
+		#top2 { top: 20; }
+		#bottom2 { bottom: 20; }
+#top3, #bottom3, #left3, #right3 {
+	background: #000000;
+	position: fixed;
+	}
+	#left3, #right3 {
+		top: 40; bottom: 40;
+		width: 10px;
+		}
+		#left3 { left: 40; }
+		#right3 { right: 40; }
+		
+	#top3, #bottom3 {
+		left: 40; right: 40;
+		height: 10px;
+		}
+		#top3 { top: 40; }
+		#bottom3 { bottom: 40; }
+#top4, #bottom4, #left4, #right4 {
+	background: #000000;
+	position: fixed;
+	}
+	#left4, #right4 {
+		top: 60; bottom: 60;
+		width: 10px;
+		}
+		#left4 { left: 60; }
+		#right4 { right: 60; }
+		
+	#top4, #bottom4 {
+		left: 60; right: 60;
+		height: 10px;
+		}
+		#top4 { top: 60; }
+		#bottom4 { bottom: 60; }
 
-<body>
+.selectC {
+    font-size: 20px;
+    font-family: 'Trebuchet MS', sans-serif;
+}​
+</style>
+
+<div id="left"></div>
+<div id="right"></div>
+<div id="top"></div>
+<div id="bottom"></div>
+<div id="left2"></div>
+<div id="right2"></div>
+<div id="top2"></div>
+<div id="bottom2"></div>
+<div id="left3"></div>
+<div id="right3"></div>
+<div id="top3"></div>
+<div id="bottom3"></div>
+<div id="left4"></div>
+<div id="right4"></div>
+<div id="top4"></div>
+<div id="bottom4"></div>
+
+<body bgcolor="#ffff00">
+	<TABLE border=0 width="100%" height="100%"><TR><TD align="center" valign="center">
 	<div class="MsoNoSpacing" style="text-align: center;">
     <span style="font-family: Trebuchet MS, sans-serif; color: red; font-size: 33px;">
-    	<b><img src="./logo.png" width="100" height="100">     Welcome to TimeWise!     <img src="./logo.png" width="100" height="100"></b></span></div>
+    	<b><img src="./logo.png" width="100" height="100">     <img src="./title.png" width="300" height="100">     <img src="./logo.png" width="100" height="100"></b></span></div>
 
     <span style="font-family: Trebuchet MS, sans-serif; color: red; font-size: 20px; text-align: center">
 	<b><p>Enter the websites you want to track your time on (press enter to separate):</p>
@@ -13,17 +104,19 @@
 	<center><textarea id="textbox" rows="10" cols="100"></textarea>
 
 	<p> Interval (how often do you want to be notified?): 
-	<select id="interval">
-		<option value="5 mins">5 Minutes</option>
-		<option value="10 mins">10 Minutes</option>
-		<option value="15 mins">15 Minutes</option>
-		<option value="20 mins">20 Minutes</option>
-		<option value="30 mins">30 Minutes</option>
+	<select id="interval" class="selectC">
+		<option value="5">5 Minutes</option>
+		<option value="10">10 Minutes</option>
+		<option value="15">15 Minutes</option>
+		<option value="20">20 Minutes</option>
+		<option value="30">30 Minutes</option>
 	</select></p></b></center></span>
 
 	<br />
 </body>
 
-<center><button id="saveButton" type="save">Update Settings</button></center>
-<script src="scripts/settings.js"></script>
+<center><button id="saveButton" type="save" style="border-radius:10px; background-color:red"><img src="./update settings.png" width="300"></button></center>
+</TD></TR></TABLE> 
+<script src="scripts/settings.js">
+</script>
 </html>
